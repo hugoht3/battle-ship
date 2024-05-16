@@ -14,18 +14,29 @@ def main():
     '''
     The function wich will start all other functions attached to the game
     '''
+    print('Welcome to XXXXXXX')
+    player_name = input("Plase insert your name: \n")
+    
     size = 5
     board = create_board(size)
     
-    print('Welcome to XXXXXXX')
-    player_name = input("Plase insert your name: \n")
-    #get_non_numeric_input(player_name)
+
+
+    
+    
 
 def create_board(size):
+    ''' 
+    Creates a sort of board
+    '''
     return [['O'] * size for i in range(size)]
 
+def print_board(board):
+    for row in board:
+        print(" ".join(row))
 
 
 
 board = create_board(5)
-print(board)
+print_board(board)
+#main()
