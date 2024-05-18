@@ -15,7 +15,7 @@ def main():
     '''
     The function wich will start all other functions attached to the game
     '''
-    print('Welcome to XXXXXXX')
+    print('Welcome to XXXXXXX') # STILL NEED TO MAKE THE INPUT USEFUL LATER JUST FOR SHOW
     player_name = input("Plase insert your name: \n")
     
     size = 5
@@ -24,10 +24,6 @@ def main():
     place_ship(board)
     print("\nSail`s Ahoy\n")
 
-
-
-    
-    
 
 def create_board(size):
     ''' 
@@ -52,9 +48,19 @@ def place_ship(board, size):
         '''
         placement = random.choice(['$', 'X'])
         if placement == '$':
-            
+            row = random.randint(0, len(board) -1)
+            col = random.randint(0, len(board) - size)
+            for i in range(size):
+                board[row][col + i] = 'S'
+        else:
+            row = random.randint(0, len(board) - size)
+            col = random.randint(0, len(board) - 1)
+            for i in range(size):
+                board[row + i][col] = 'S'
+# manage to have the placement of ships done with a LOADS OF F>>>>>>>>> HELP
+# OMG
 
 
-#board = create_board(5)
-#print_board(board)
 #main()
+#print_board(board)
+#place_ship(board)
