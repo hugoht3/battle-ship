@@ -9,6 +9,13 @@ import random
 
 ## Remeber to use the \n to new line some code so it wont bug in HEROKU
 
+
+######## REMEBER THAT FUNCTION HAVE THE : AFTER ITS MAKE
+######## EG def example(example): <========== remnber the comma
+
+
+
+
 score = {"player": 0, "computer": 0}
 
 def main():
@@ -16,13 +23,18 @@ def main():
     The function wich will start all other functions attached to the game
     '''
     print('Welcome to XXXXXXX') # STILL NEED TO MAKE THE INPUT USEFUL LATER JUST FOR SHOW
-    player_name = input("Plase insert your name: \n")
+    player_name = input("Please insert your name: \n")
     
     size = 5
-    board = create_board(size)
-    print_board(board)
-    place_ship(board)
-    print("\nSail`s Ahoy\n")
+    board1 = create_board(size)
+    board2 = create_board(size)
+    ship_size = 4
+    place_ship(board1, ship_size)
+    print_board(board1)
+    place_ship(board2, ship_size)
+    print("\nComputer Board\n")
+    
+    
 
 
 def create_board(size):
@@ -51,16 +63,35 @@ def place_ship(board, size):
             row = random.randint(0, len(board) -1)
             col = random.randint(0, len(board) - size)
             for i in range(size):
-                board[row][col + i] = 'S'
+                board[row][col + i] = 'X'
         else:
             row = random.randint(0, len(board) - size)
             col = random.randint(0, len(board) - 1)
             for i in range(size):
-                board[row + i][col] = 'S'
-# manage to have the placement of ships done with a LOADS OF F>>>>>>>>> HELP
+                board[row + i][col] = '$'
+        
+
+    
+def make_guess(board, row, col):
+    
+    '''
+    This Function will act as a guess marker when you play the game.
+    '''
+    if board[row][col] == '$':
+        board[row][col] = 'X'
+        return True
+    elif board[row][col] == 'O':
+        board[row][col] = '@'
+        return False
+    return None
+
+    # manage to have the placement of ships done with a LOADS OF F>>>>>>>>> HELP
 # OMG
 
 
-#main()
+main()
 #print_board(board)
 #place_ship(board)
+# Simulating a do-while loop in Python
+
+
