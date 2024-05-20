@@ -13,7 +13,7 @@ import random
 ######## REMEBER THAT FUNCTION HAVE THE : AFTER ITS MAKE
 ######## EG def example(example): <========== remnber the comma
 
-
+## A lot of the code has \n for new lines in code just in case that in the video was explained to do so for the purpose of running correctly in the HEROKU MOCK terminal
 
 
 score = {"player": 0, "computer": 0}  #took this from the project portifolio video used for a start on the project be sure to delete it
@@ -33,7 +33,7 @@ def main():
     print_board(board1)
     place_ship(board2, ship_size)
     print("\nComputer Board\n")
-    
+    make_guess(board, row, col)
     
 
 
@@ -89,21 +89,53 @@ def make_guess(board, row, col):
 # OMG
 
 
+'''
+LOOP THAT MAKES THE GAME KEEP RUNNING UNTILL LOSE OR WIN
+'''
+turns = 6   # MADE A NUMBER OF TURNS BUT INTENT TO HAVE A DIFICULTY SELECTOR THAT ILL AFFECT THAT NUMBER LATER
+while turns > 0:
+    print(f'\nYou have {turns} left.')
+    row = input("Enter row")
+    col = input("Enter Column")
+    if make_guess(board, row, col):
+        print("You Hit it")
+    else:
+        print("Missed It")
+print(board)
+
+
+def all_ships_sink(board):
+    '''
+    Function that stops the game when you LOSE or WIN
+    '''
+    for row in board:
+        if '$' in row:
+            return False
+    return True
+
+
+
+if all_ships_sink(board):
+    print("You Won")
+    break
+
+
+
 
 
 #def test():
-    while True:
+    #while True:
     # Code that you want to execute at least once
-        user_input = input("Enter a positive number: ")
-        number = int(user_input)
+        #user_input = input("Enter a positive number: ")
+        #number = int(user_input)
     
     # Check the condition to determine whether to continue looping
-        if number > 0:
-            break  # Exit the loop if the condition is met
+       #if number > 0:
+            #break  # Exit the loop if the condition is met
     
-    print("Invalid input. Please try again.")
+    #print("Invalid input. Please try again.")
 
-    print(f"You entered a positive number: {number}")
+    #print(f"You entered a positive number: {number}")
 
 #test()
 
