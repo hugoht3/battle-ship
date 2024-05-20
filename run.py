@@ -16,7 +16,7 @@ import random
 
 
 
-score = {"player": 0, "computer": 0}
+score = {"player": 0, "computer": 0}  #took this from the project portifolio video used for a start on the project be sure to delete it
 
 def main():
     '''
@@ -89,7 +89,29 @@ def make_guess(board, row, col):
 # OMG
 
 
-main()
+
+
+#def test():
+    while True:
+    # Code that you want to execute at least once
+        user_input = input("Enter a positive number: ")
+        number = int(user_input)
+    
+    # Check the condition to determine whether to continue looping
+        if number > 0:
+            break  # Exit the loop if the condition is met
+    
+    print("Invalid input. Please try again.")
+
+    print(f"You entered a positive number: {number}")
+
+#test()
+
+
+
+
+
+#main()
 #print_board(board)
 #place_ship(board)
 # Simulating a do-while loop in Python
