@@ -1,28 +1,11 @@
 import random
 
-##Started with a battle ship game
-
-
-##First functions are just pirnting something to the terminal to see if they are working.
-
-##To se more about the project check the video of the pyhthon 3 project.
-
-## Remeber to use the \n to new line some code so it wont bug in HEROKU
-
-
-######## REMEBER THAT FUNCTION HAVE THE : AFTER ITS MAKE
-######## EG def example(example): <========== remnber the comma
-
-## A lot of the code has \n for new lines in code just in case that in the video was explained to do so for the purpose of running correctly in the HEROKU MOCK terminal
-
-
-
 
 def main():
     '''
     The function wich will start all other functions attached to the game
     '''
-    print('Welcome to XX KAIAK-EXTREME XX ') # STILL NEED TO MAKE THE INPUT USEFUL LATER JUST FOR SHOW
+    print('Welcome to XX BATTLE-SHIP XX ')
     player_name = input("Please insert your name: \n")
     
     difficulty = select_difficulty()
@@ -43,8 +26,8 @@ def main():
 
     while turns > 0:
         print(f'\nYou have {turns} turns left.')
-        row = int(input(f"Enter row (0-{size-1}): "))
-        col = int(input(f"Enter column (0-{size-1}): "))
+        row = get_valid_int_input(f"Enter row (0-{size-1}): ", 0, size-1)
+        col = get_valid_int_input(f"Enter column (0-{size-1}): ", 0, size-1)
         
         if make_guess(board2, row, col):
             print("You hit a ship!")
@@ -55,7 +38,7 @@ def main():
         print_board(board1)
         
         print(f"\nEnemy Board ({enemy_name}):")
-        print_board(board2)
+        print_board_hidden(board2)
         
         if all_ships_sunk(board2):
             print("You won!")
@@ -113,17 +96,24 @@ def print_board(board):
     for row in board:
         print(" ".join(row))
 
+def print_board_hidden(board):
+    '''
+    Prints the board with hidden ships for the enemy board display.
+    '''
+    for row in board:
+        print(" ".join(['O' if cell == '$' else cell for cell in row]))
+
 
 def place_ship(board, size):
         '''
         Function that put the ships in place
         '''
-        placement = random.choice(['$', 'X'])
-        if placement == '$':
+        placement = random.choice(['X', 'Y'])
+        if placement == 'X':
             row = random.randint(0, len(board) -1)
             col = random.randint(0, len(board) - size)
             for i in range(size):
-                board[row][col + i] = 'X'
+                board[row][col + i] = '$'
         else:
             row = random.randint(0, len(board) - size)
             col = random.randint(0, len(board) - 1)
@@ -153,11 +143,24 @@ def all_ships_sunk(board):
             return False
     return True
 
+def get_valid_int_input(prompt, min_val, max_val):
+    '''
+    Function that gets a valid integer input within a specified range
+    '''
+    while True:
+        try:
+            value = int(input(prompt))
+            if min_val <= value <= max_val:
+                return value
+            else:
+                print(f"Invalid input. Please enter a number between {min_val} and {max_val}.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
 main()
 
 
-## IF YOU MANAGE TO FINISH A PRESENTAGBLE PROJECT LATER THEM TRY THE COLORAMA THING THAT DICK TOLD YOU
+
 
 
 
