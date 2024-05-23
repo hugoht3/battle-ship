@@ -22,7 +22,7 @@ def main():
     '''
     The function wich will start all other functions attached to the game
     '''
-    print('Welcome to XXXXXXX') # STILL NEED TO MAKE THE INPUT USEFUL LATER JUST FOR SHOW
+    print('Welcome to XX KAIAK-EXTREME XX ') # STILL NEED TO MAKE THE INPUT USEFUL LATER JUST FOR SHOW
     player_name = input("Please insert your name: \n")
     
     size = 5
@@ -46,16 +46,24 @@ def select_difficulty():
     print("3. Hard")
 
     while True:
-        difficulty = input("Enter 1, 2 or 3")
-        if difficulty in ['1' , '2', '3']:
+        choice = input("Enter 1, 2 or 3")
+        if choice in ['1' , '2', '3']:
             return in(choice)
         else:
             print("Invalid. Please select 1, 2 or 3.")
 
 
 
-
-
+def select_difficulty(difficulty):
+    '''
+    Sets the board size, and ship size and number of turns based on the difficulty
+    '''
+    if difficulty == 1 :
+        return 4, 3, 10
+    elif difficulty == 2 :
+        return 5, 3, 12
+    elif difficulty == 3:
+        return 6, 2, 14
 
 
 def create_board(size):
@@ -106,24 +114,6 @@ def make_guess(board, row, col):
         return False
     return None
 
-    
-OMG
-Colorama
-'''
-LOOP THAT MAKES THE GAME KEEP RUNNING UNTILL LOSE OR WIN
-'''
-turns = 6   # MADE A NUMBER OF TURNS BUT INTENT TO HAVE A DIFICULTY SELECTOR THAT ILL AFFECT THAT NUMBER LATER
-while turns > 0:
-    print(f'\nYou have {turns} left.')
-    row = input("Enter row")
-    col = input("Enter Column")
-    if make_guess(board, row, col):
-        print("You Hit it")
-    else:
-        print("Missed It")
-print(board)
-
-
 def all_ships_sink(board):
    '''
     Function that stops the game when you LOSE or WIN
@@ -137,31 +127,20 @@ def all_ships_sink(board):
        print("You Won")
        break
 
-## This example is not going forward try another one later 
-
-
-
-def test():
-    while True:
-    Code that you want to execute at least once
-        user_input = input("Enter a positive number: ")
-        number = int(user_input)
-    
-    Check the condition to determine whether to continue looping
-       if number > 0:
-            break  # Exit the loop if the condition is met
-    
-    print("Invalid input. Please try again.")
-
-    print(f"You entered a positive number: {number}")
-
-
-
-
-
-
 
 main()
+
+
+## IF YOU MANAGE TO FINISH A PRESENTAGBLE PROJECT LATER THEM TRY THE COLORAMA THING THAT DICK TOLD YOU
+
+
+
+
+
+
+
+
+
 
 
 
