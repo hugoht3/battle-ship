@@ -25,15 +25,46 @@ def main():
     print('Welcome to XX KAIAK-EXTREME XX ') # STILL NEED TO MAKE THE INPUT USEFUL LATER JUST FOR SHOW
     player_name = input("Please insert your name: \n")
     
-    size = 5
+    difficulty = select_difficulty()
+    size, ship_size, turns = set_difficulty(difficulty)
+    enemy_name = random.choice(["Pirates", "Robots", "Skeletons", "Aliens", "Ninjas"])
+
     board1 = create_board(size)
     board2 = create_board(size)
-    ship_size = 4
+    
     place_ship(board1, ship_size)
-    print_board(board1)
     place_ship(board2, ship_size)
-    print("\nComputer Board\n")
-    make_guess(board1, row, col)
+    
+    print("\nPlayer's Board:")
+    print_board(board1)
+    
+    print(f"\nEnemy Board ({enemy_name}):")
+    print_board(board2)
+
+    while turns > 0:
+        print(f'\nYou have {turns} turns left.')
+        row = int(input(f"Enter row (0-{size-1}): "))
+        col = int(input(f"Enter column (0-{size-1}): "))
+        
+        if make_guess(board2, row, col):
+            print("You hit a ship!")
+        else:
+            print("You missed!")
+        
+        print("\nPlayer's Board:")
+        print_board(board1)
+        
+        print(f"\nEnemy Board ({enemy_name}):")
+        print_board(board2)
+        
+        if all_ships_sunk(board2):
+            print("You won!")
+            break
+        
+        turns -= 1
+    
+    if turns == 0:
+        print("You ran out of turns. Game over!")
     
 
 def select_difficulty():
@@ -46,15 +77,15 @@ def select_difficulty():
     print("3. Hard")
 
     while True:
-        choice = input("Enter 1, 2 or 3")
+        choice = input("Enter 1, 2 or 3 \n")
         if choice in ['1' , '2', '3']:
-            return in(choice)
+            return int(choice)
         else:
-            print("Invalid. Please select 1, 2 or 3.")
+            print("Invalid. Please select 1. Easy, 2. Medium or 3 Hard.")
 
 
 
-def select_difficulty(difficulty):
+def set_difficulty(difficulty):
     '''
     Sets the board size, and ship size and number of turns based on the difficulty
     '''
@@ -102,9 +133,8 @@ def place_ship(board, size):
 
     
 def make_guess(board, row, col):
-    
     '''
-    This Function will act as a guess marker when you play the game.
+    This function acts as a guess marker when you play the game.
     '''
     if board[row][col] == '$':
         board[row][col] = 'X'
@@ -114,18 +144,14 @@ def make_guess(board, row, col):
         return False
     return None
 
-def all_ships_sink(board):
-   '''
-    Function that stops the game when you LOSE or WIN
-   '''
+def all_ships_sunk(board):
+    '''
+    Function that checks if all ships are sunk.
+    '''
     for row in board:
-       if '$' in row:
+        if '$' in row:
             return False
     return True
-
-   if all_ships_sink(board):
-       print("You Won")
-       break
 
 
 main()
