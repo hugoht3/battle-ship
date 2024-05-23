@@ -16,7 +16,7 @@ import random
 ## A lot of the code has \n for new lines in code just in case that in the video was explained to do so for the purpose of running correctly in the HEROKU MOCK terminal
 
 
-score = {"player": 0, "computer": 0}  #took this from the project portifolio video used for a start on the project be sure to delete it
+
 
 def main():
     '''
@@ -33,8 +33,29 @@ def main():
     print_board(board1)
     place_ship(board2, ship_size)
     print("\nComputer Board\n")
-    make_guess(board, row, col)
+    make_guess(board1, row, col)
     
+
+def select_difficulty():
+    '''
+    Function that give us a difficulty selector
+    ''' 
+    print("Select difficulty level:")
+    print("1. Easy")
+    print("2. Medium")
+    print("3. Hard")
+
+    while True:
+        difficulty = input("Enter 1, 2 or 3")
+        if difficulty in ['1' , '2', '3']:
+            return in(choice)
+        else:
+            print("Invalid. Please select 1, 2 or 3.")
+
+
+
+
+
 
 
 def create_board(size):
@@ -85,10 +106,9 @@ def make_guess(board, row, col):
         return False
     return None
 
-    # manage to have the placement of ships done with a LOADS OF F>>>>>>>>> HELP
-# OMG
-
-
+    
+OMG
+Colorama
 '''
 LOOP THAT MAKES THE GAME KEEP RUNNING UNTILL LOSE OR WIN
 '''
@@ -105,47 +125,43 @@ print(board)
 
 
 def all_ships_sink(board):
-    '''
+   '''
     Function that stops the game when you LOSE or WIN
-    '''
+   '''
     for row in board:
-        if '$' in row:
+       if '$' in row:
             return False
     return True
 
+   if all_ships_sink(board):
+       print("You Won")
+       break
 
-
-if all_ships_sink(board):
-    print("You Won")
-    break
-
-
+## This example is not going forward try another one later 
 
 
 
-#def test():
-    #while True:
-    # Code that you want to execute at least once
-        #user_input = input("Enter a positive number: ")
-        #number = int(user_input)
+def test():
+    while True:
+    Code that you want to execute at least once
+        user_input = input("Enter a positive number: ")
+        number = int(user_input)
     
-    # Check the condition to determine whether to continue looping
-       #if number > 0:
-            #break  # Exit the loop if the condition is met
+    Check the condition to determine whether to continue looping
+       if number > 0:
+            break  # Exit the loop if the condition is met
     
-    #print("Invalid input. Please try again.")
+    print("Invalid input. Please try again.")
 
-    #print(f"You entered a positive number: {number}")
-
-#test()
+    print(f"You entered a positive number: {number}")
 
 
 
 
 
-#main()
-#print_board(board)
-#place_ship(board)
-# Simulating a do-while loop in Python
+
+
+main()
+
 
 
