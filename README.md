@@ -58,7 +58,8 @@ Also deployed to Heroku for use the use of Mock terminal,
 provided by CODE INSTITUTE :https://xxbattle-shipxx-618349b2d0ae.herokuapp.com/
 
 > Steps:
-        + Clone the Repository : https://github.com/Code-Institute-Org/p3-template
+
+        + Clone the Repository: https://github.com/Code-Institute-Org/p3-template
 
         + Created a Heroku, Set the buildbacks to Python and NodeJS in that particular order 
 
@@ -69,4 +70,6 @@ provided by CODE INSTITUTE :https://xxbattle-shipxx-618349b2d0ae.herokuapp.com/
 ## Cresits
     > No Libraries Where used in this project
     
-    > CODE INSTITUTE had all the information and the tools provided for the completion of this project :https://codeinstitute.net/ie/full-stack-software-development-diploma/?utm_term=code%20institute&utm_campaign=CI+-+IRL+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=128775288209&hsa_ad=635725005315&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjw9cCyBhBzEiwAJTUWNXtXZKdc0zk_YotoZCaKjzIgR_JQKAyrdHm0yR2HqGeNGb9gyPywLBoCBGIQAvD_BwE
+    > CODE INSTITUTE had all the information and the tools provided for the completion of this project:
+    
+    https://codeinstitute.net/ie/full-stack-software-development-diploma/?utm_term=code%20institute&utm_campaign=CI+-+IRL+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=128775288209&hsa_ad=635725005315&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjw9cCyBhBzEiwAJTUWNXtXZKdc0zk_YotoZCaKjzIgR_JQKAyrdHm0yR2HqGeNGb9gyPywLBoCBGIQAvD_BwE
