@@ -1,7 +1,6 @@
 # XX BATTLE-SHIP XX
 
 Git Hub page:
-
 https://github.com/hugoht3/battle-ship
 
 Heroku Mock terminal:  
@@ -49,11 +48,11 @@ The difficulty alters the size of the board as the number of ships.
 
 ## Testing
 
-> Passed the code trough a PEP8 linter for the 100% Clear
++ Passed the code trough a PEP8 linter for the 100% Clear
 
-> Given invalid inputs are not going trough as the validator`s work
++ Given invalid inputs are not going trough as the validator`s work
 
-> Heroku's mock terminal start and finishes the game as intended
++ Heroku's mock terminal start and finishes the game as intended
 
 
 ## Deployment
@@ -73,8 +72,8 @@ provided by CODE INSTITUTE :https://xxbattle-shipxx-618349b2d0ae.herokuapp.com/
 + Clicked deploy
 
 ## Credits
-> No Libraries Where used in this project
++ No Libraries Where used in this project
     
-> CODE INSTITUTE had all the information and the tools provided for the completion of this project:
++ CODE INSTITUTE had all the information and the tools provided for the completion of this project:
     
 https://codeinstitute.net/ie/full-stack-software-development-diploma/?utm_term=code%20institute&utm_campaign=CI+-+IRL+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=128775288209&hsa_ad=635725005315&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjw9cCyBhBzEiwAJTUWNXtXZKdc0zk_YotoZCaKjzIgR_JQKAyrdHm0yR2HqGeNGb9gyPywLBoCBGIQAvD_BwE
