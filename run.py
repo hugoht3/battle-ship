@@ -23,6 +23,8 @@ def main():
     print(f"\nEnemy Board ({enemy_name}):")
     print_board_hidden(board2)
 
+    previous_computer_guesses = set()
+
     while turns > 0:
         print(f'\nYou have {turns} turns left.')
         row = get_valid_int_input(f"Enter row (0-{size-1}): ", 0, size-1)
@@ -33,17 +35,29 @@ def main():
         else:
             print("You missed!")
         
+        if all_ships_sunk(board2):
+            print("You won!")
+            break
+
+        # Computer's turn to guess
+        comp_row, comp_col = computer_guess(board1, previous_computer_guesses, size)
+        if make_guess(board1, comp_row, comp_col):
+            print(f"Computer hit your ship at ({comp_row}, {comp_col})!")
+        else:
+            print(f"Computer missed at ({comp_row}, {comp_col}).")
+        
+        if all_ships_sunk(board1):
+            print("Computer won!")
+            break
+
+        turns -= 1
+
+        # Clear the screen and reprint the boards
         print("\nPlayer's Board:")
         print_board(board1)
         
         print(f"\nEnemy Board ({enemy_name}):")
         print_board_hidden(board2)
-        
-        if all_ships_sunk(board2):
-            print("You won!")
-            break
-        
-        turns -= 1
     
     if turns == 0:
         print("You ran out of turns. Game over!")
@@ -124,6 +138,17 @@ def make_guess(board, row, col):
         return False
     return None
 
+def computer_guess(board, previous_guesses, size):
+    '''
+    Make computer guess
+    '''
+    while True:
+        row = random.randint(0, size - 1)
+        col = random.randint(0, size - 1)
+        if (row, col) not in previous_guesses:
+            previous_guesses.add((row, col))
+            return row, col
+
 def all_ships_sunk(board):
     '''
     Function that checks if all ships are sunk.
@@ -143,7 +168,8 @@ def get_valid_int_input(prompt, min_val, max_val):
             if min_val <= value <= max_val:
                 return value
             else:
-                print(f"Invalid input. Please enter a number between {min_val} and {max_val}.")
+                print(f"Invalid input. Please enter a number " +
+                    f"between {min_val} and {max_val}.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
