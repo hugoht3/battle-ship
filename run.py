@@ -1,11 +1,10 @@
 import random
 
-
 def main():
     '''
-    The function wich will start all other functions attached to the game
+    The function which will start all other functions attached to the game
     '''
-    print('Welcome to XX BATTLE-SHIP XX ')
+    print('Welcome to XX BATTLE-SHIP XX')
     player_name = input("Please insert your name: \n")
     
     difficulty = select_difficulty()
@@ -22,7 +21,7 @@ def main():
     print_board(board1)
     
     print(f"\nEnemy Board ({enemy_name}):")
-    print_board(board2)
+    print_board_hidden(board2)
 
     while turns > 0:
         print(f'\nYou have {turns} turns left.')
@@ -52,7 +51,7 @@ def main():
 
 def select_difficulty():
     '''
-    Function that give us a difficulty selector
+    Function that allows the player to select the difficulty level
     ''' 
     print("Select difficulty level:")
     print("1. Easy")
@@ -61,37 +60,31 @@ def select_difficulty():
 
     while True:
         choice = input("Enter 1, 2 or 3 \n")
-        if choice in ['1' , '2', '3']:
+        if choice in ['1', '2', '3']:
             return int(choice)
         else:
-            print("Invalid. Please select 1. Easy, 2. Medium or 3 Hard.")
-
-
+            print("Invalid input. Please select 1, 2, or 3.")
 
 def set_difficulty(difficulty):
     '''
-    Sets the board size, and ship size and number of turns based on the difficulty
+    Sets the board size, ship size, and number of turns based on the difficulty
     '''
-    if difficulty == 1 :
-        return 4, 3, 10
-    elif difficulty == 2 :
-        return 5, 3, 12
+    if difficulty == 1:
+        return 4, 2, 10  # Easy: Smaller board, fewer ships, more turns
+    elif difficulty == 2:
+        return 5, 3, 12  # Medium: Medium board, more ships, moderate turns
     elif difficulty == 3:
-        return 6, 2, 14
-
+        return 6, 4, 14  # Hard: Larger board, most ships, more turns
 
 def create_board(size):
     ''' 
-    Creates a sort of board.
+    Creates a board with a given size.
     '''
-    return [['O'] * size for i in range(size)]
-
-
+    return [['O'] * size for _ in range(size)]
 
 def print_board(board):
     '''
-    This Function makes the board clear with no Commas OR braces 
-    at the end.
+    Prints the board without commas or brackets.
     '''
     for row in board:
         print(" ".join(row))
@@ -103,28 +96,25 @@ def print_board_hidden(board):
     for row in board:
         print(" ".join(['O' if cell == '$' else cell for cell in row]))
 
-
 def place_ship(board, size):
-        '''
-        Function that put the ships in place
-        '''
-        placement = random.choice(['X', 'Y'])
-        if placement == 'X':
-            row = random.randint(0, len(board) -1)
-            col = random.randint(0, len(board) - size)
-            for i in range(size):
-                board[row][col + i] = '$'
-        else:
-            row = random.randint(0, len(board) - size)
-            col = random.randint(0, len(board) - 1)
-            for i in range(size):
-                board[row + i][col] = '$'
-        
+    '''
+    Function that places ships on the board.
+    '''
+    placement = random.choice(['horizontal', 'vertical'])
+    if placement == 'horizontal':
+        row = random.randint(0, len(board) - 1)
+        col = random.randint(0, len(board) - size)
+        for i in range(size):
+            board[row][col + i] = '$'
+    else:
+        row = random.randint(0, len(board) - size)
+        col = random.randint(0, len(board) - 1)
+        for i in range(size):
+            board[row + i][col] = '$'
 
-    
 def make_guess(board, row, col):
     '''
-    This function acts as a guess marker when you play the game.
+    This function handles the player's guess and updates the board.
     '''
     if board[row][col] == '$':
         board[row][col] = 'X'
@@ -158,18 +148,3 @@ def get_valid_int_input(prompt, min_val, max_val):
             print("Invalid input. Please enter a valid integer.")
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
