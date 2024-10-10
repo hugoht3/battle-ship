@@ -7,9 +7,9 @@ Heroku Mock terminal:
 https://xxbattle-shipxx-618349b2d0ae.herokuapp.com/
 
 
-XX BATTLE-SHIP XX is a game ran in python terminal, that rans in the CODE INSTITUTE mock terminal on HEROKU.
-
-The goal of the game is to sink or hit the computer ships or ship before the computer.
+Battleship Game
+Welcome to XX BATTLE-SHIP XX
+This is a terminal-based Battleship game where you face off against an AI opponent. The game includes a player and an AI enemy that take turns guessing the location of hidden ships on a grid. The player wins by sinking all enemy ships before running out of turns.
 
 ![Alt text ](/assets/Terminal.png)
 
@@ -77,3 +77,20 @@ provided by CODE INSTITUTE :https://xxbattle-shipxx-618349b2d0ae.herokuapp.com/
 + CODE INSTITUTE had all the information and the tools provided for the completion of this project:
     
 https://codeinstitute.net/ie/full-stack-software-development-diploma/?utm_term=code%20institute&utm_campaign=CI+-+IRL+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14304747355&hsa_grp=128775288209&hsa_ad=635725005315&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAjw9cCyBhBzEiwAJTUWNXtXZKdc0zk_YotoZCaKjzIgR_JQKAyrdHm0yR2HqGeNGb9gyPywLBoCBGIQAvD_BwE
+
+
+
+
+### Redeployment 
+    Improve code readebility
+
+# Corrected some user inputs :
+    Where as the player could before make the same move twice.
+    The same as for the computer guess
+
+# Board 
+    Made the board stop showing the enemy ships
+
+
+
+
